@@ -1,28 +1,32 @@
 <div class="container">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h2 class="h2">Books List</h2>
+    <h2>Books List</h2>
   </div>
  
   <div class="table-responsive">
-    <table class="table table-bordered">
+    <table mat-table class="mat-elevation-z8">
       <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">Description</th>
-          <th class="text-center" scope="col">Action</th>
+        <tr mat-cell>
+          <th mat-header-cell >Id</th>
+          <th mat-header-cell >Name</th>
+          <th mat-header-cell >Price(¥)</th>
+          <th mat-header-cell >Description</th>
+          <th mat-header-cell >Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of Books; let i = index">
-          <th scope="row">{{book._id}}</th>
-          <td>{{book.name}}</td>
-          <td>{{book.price}}</td>
-          <td>{{book.description}}</td>
-          <td class="text-center">
-            <button class="btn btn-sm btn-primary" routerLink="/edit-book/{{book._id}}">Edit</button>
-            <button class="btn btn-sm btn-danger" (click)="delete(book._id, i)">Delete</button>
+        <tr mat-cell *ngFor="let book of Books; let i =index">
+          <th mat-cell>{{book._id}}</th>
+          <td mat-cell>{{book.name}}</td>
+          <td mat-cell>{{book.price}}</td>
+          <td mat-cell>{{book.description}}</td>
+          <td mat-cell class="text-center">
+            <button class="btn btn-sm btn-primary" routerLink="/edit-book/{{book._id}}">
+              <mat-icon>create</mat-icon>
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="delete(book._id, i)">
+              <mat-icon>delete</mat-icon>
+            </button>
         </tr>
       </tbody>
     </table>
