@@ -37,5 +37,4 @@ export class AddBookComponent implements OnInit {
         console.log(err);
     });
   }
- 
 }
